@@ -1,0 +1,363 @@
+<HTML>
+<HEAD>
+    <TITLE>RELAZIONE MENALE NICOLA CORSA BICICLETTE SORGENTE</TITLE>
+    <link rel="stylesheet" href="style.css">
+    </HEAD>
+    <BODY BGCOLOR="#143055">
+        <body>
+            <h1 align="center"><font size="7">CORSA BICICLETTE SORGENTE</font></h1><br>
+            
+            <h3 align="left"><body text="#fffff"><p>
+&nbsp;#include &lt;stdio.h&gt;<p>
+&nbsp;#include &lt;time.h&gt;<p>
+&nbsp;#include &lt;stdlib.h&gt;<p>
+&nbsp;<p>
+&nbsp;typedef struct Mesi{<p>
+&nbsp;char *nome;<p>
+&nbsp;} Mesi;<p>
+&nbsp;<p>
+&nbsp;typedef struct Prodotti {<p>
+&nbsp;char *nome;<p>
+&nbsp;char *specifica;<p>
+&nbsp;int codice;<p>
+&nbsp;int quantità;<p>
+&nbsp;int prezzo;<p>
+&nbsp;} Prodotti;<p>
+&nbsp;<p>
+&nbsp;typedef struct ProdottiVenduti {<p>
+&nbsp;int venduti[365];<p>
+&nbsp;} ProdottiVenduti;<p>
+&nbsp;<p>
+&nbsp;typedef struct ProdottiRimanenti {<p>
+&nbsp;int rimanenti[365];<p>
+&nbsp;} ProdottiRimanenti;<p>
+&nbsp;<p>
+&nbsp;<p> 
+&nbsp;void prodotto_sotto_scorta(int [], ProdottiRimanenti [], ProdottiVenduti [], Prodotti []);<p>
+&nbsp;<p>
+&nbsp;void prodotto_acquistato(int [], ProdottiRimanenti [], ProdottiVenduti [], Prodotti []);<p>
+&nbsp;<p>
+&nbsp;void prodotti_venduti_10gg(int [], ProdottiRimanenti [], ProdottiVenduti [], Prodotti []);<p>
+&nbsp;<p>
+&nbsp;int menu(int);<p>
+&nbsp;<p>
+&nbsp;void scelte(int, int [], ProdottiRimanenti [], ProdottiVenduti [], Prodotti []);<p>
+&nbsp;<p>
+&nbsp;int main()<p>
+{<p>
+    &nbsp;ProdottiVenduti ProdottiVenduti[20];<p>
+    &nbsp;<p>
+    &nbsp;ProdottiRimanenti ProdottiRimanenti[20];<p>
+    &nbsp;<p>
+    &nbsp;Prodotti prodotto[20];<p>
+    &nbsp;prodotto[0].nome = "Workstation AMD (1)";<p>
+    &nbsp;prodotto[0].codice = 6586;<p>
+    &nbsp;prodotto[0].prezzo = 2500;<p>
+    &nbsp;prodotto[0].quantità = 20;<p>
+    &nbsp;prodotto[0].specifica = "128GB ram, 1TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[1].nome = "Workstation AMD-2 (2)";<p>
+    &nbsp;prodotto[1].codice = 5869;<p>
+    &nbsp;prodotto[1].prezzo = 2750;<p>
+    &nbsp;prodotto[1].quantità = 15;<p>
+    &nbsp;prodotto[1].specifica = "128GB ram, 2TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[2].nome = "Workstation Intel (3)";<p>
+    &nbsp;prodotto[2].codice = 7879;<p>
+    &nbsp;prodotto[2].prezzo = 2300;<p>
+    &nbsp;prodotto[2].quantità = 20;<p>
+    &nbsp;prodotto[2].specifica = "256GB ram, 1TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[3].nome = "Workstation Intel-2 (4)";<p>
+    &nbsp;prodotto[3].codice = 8796;<p>
+    &nbsp;prodotto[3].prezzo = 1700;<p>
+    &nbsp;prodotto[3].quantità = 30;<p>
+    &nbsp;prodotto[3].specifica = "64GB ram, 1TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[4].nome = "Portatile ASUS (5)";<p>
+    &nbsp;prodotto[4].codice = 5348;<p>
+    &nbsp;prodotto[4].prezzo = 1700;<p>
+    &nbsp;prodotto[4].quantità = 10;<p>
+    &nbsp;prodotto[4].specifica = "16GB ram, 1TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[5].nome = "Pc Fisso NZXT (6)";<p>
+    &nbsp;prodotto[5].codice = 6898;<p>
+    &nbsp;prodotto[5].prezzo = 1200;<p>
+    &nbsp;prodotto[5].quantità = 10;<p>
+    &nbsp;prodotto[5].specifica = "32GB ram, 2TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[6].nome = "Pc Fisso MSI (7)";<p>
+    &nbsp;prodotto[6].codice = 4375;<p>
+    &nbsp;prodotto[6].prezzo = 1150;<p>
+    &nbsp;prodotto[6].quantità = 50;<p>
+    &nbsp;prodotto[6].specifica = "16GB ram, 2TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[7].nome = "IPhone 13 (8)";<p>
+    &nbsp;prodotto[7].codice = 6329;<p>
+    &nbsp;prodotto[7].prezzo = 1300;<p>
+    &nbsp;prodotto[7].quantità = 40;<p>
+    &nbsp;prodotto[7].specifica = "8GB ram, 1TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[8].nome = "Portatile MSI (9)";<p>
+    &nbsp;prodotto[8].codice = 7571;<p>
+    &nbsp;prodotto[8].prezzo = 1000;<p>
+    &nbsp;prodotto[8].quantità = 30;<p>
+    &nbsp;prodotto[8].specifica = "16GB ram, 2TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[9].nome = "Pc Fisso DELL (10)";<p>
+    &nbsp;prodotto[9].codice = 9063;<p>
+    &nbsp;prodotto[9].prezzo = 1450;<p>
+    &nbsp;prodotto[9].quantità = 35;<p>
+    &nbsp;prodotto[9].specifica = "8GB ram, 2TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[10].nome = "Workstation Intel-3 (11)";<p>
+    &nbsp;prodotto[10].codice = 1437;<p>
+    &nbsp;prodotto[10].prezzo = 1950;<p>
+    &nbsp;prodotto[10].quantità = 45;<p>
+    &nbsp;prodotto[10].specifica = "64GB ram, 2TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[11].nome = "Pc Fisso AMD (12)";<p>
+    &nbsp;prodotto[11].codice = 2538;<p>
+    &nbsp;prodotto[11].prezzo = 1500;<p>
+    &nbsp;prodotto[11].quantità = 40;<p>
+    &nbsp;prodotto[11].specifica = "32GB ram, 2TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[12].nome = "Pc Fisso intel (13)";<p>
+    &nbsp;prodotto[12].codice = 7452;<p>
+    &nbsp;prodotto[12].prezzo = 900;<p>
+    &nbsp;prodotto[12].quantità = 70;<p>
+    &nbsp;prodotto[12].specifica = "16GB ram, 2TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[13].nome = "Portatile ASUS (14)";<p>
+    &nbsp;prodotto[13].codice = 4365;<p>
+    &nbsp;prodotto[13].prezzo = 800;<p>
+    &nbsp;prodotto[13].quantità = 80;<p>
+    &nbsp;prodotto[13].specifica = "16GB ram, 1TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[14].nome = "Tablet Samsung (15)";<p>
+    &nbsp;prodotto[14].codice = 2538;<p>
+    &nbsp;prodotto[14].prezzo = 700;<p>
+    &nbsp;prodotto[14].quantità = 90;<p>
+    &nbsp;prodotto[14].specifica = "4GB ram, 2TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[15].nome = "Workstation AMD-3 (16)";<p>
+    &nbsp;prodotto[15].codice = 5629;<p>
+    &nbsp;prodotto[15].prezzo = 3000;<p>
+    &nbsp;prodotto[15].quantità = 10;<p>
+    &nbsp;prodotto[15].specifica = "128GB ram, 3TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[16].nome = "Pc Fisso NZXT-2 (17)";<p>
+    &nbsp;prodotto[16].codice = 9754;<p>
+    &nbsp;prodotto[16].prezzo = 1400;<p>
+    &nbsp;prodotto[16].quantità = 100;<p>
+    &nbsp;prodotto[16].specifica = "16GB ram, 4TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[17].nome = "Workstation Intel-4 (18)";<p>
+    &nbsp;prodotto[17].codice = 8931;<p>
+    &nbsp;prodotto[17].prezzo = 1650;<p>
+    &nbsp;prodotto[17].quantità = 70;<p>
+    &nbsp;prodotto[17].specifica = "64GB ram, 3TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[18].nome = "Samsung S21 (19)";<p>
+    &nbsp;prodotto[18].codice = 4368;<p>
+    &nbsp;prodotto[18].prezzo = 1000;<p>
+    &nbsp;prodotto[18].quantità = 40;<p>
+    &nbsp;prodotto[18].specifica = "16GB ram, 1TB storage";<p>
+    &nbsp;<p>
+    &nbsp;prodotto[19].nome = "Workstation AMD-4 (20)";<p>
+    &nbsp;prodotto[19].codice = 3257;<p>
+    &nbsp;prodotto[19].prezzo = 3500;<p>
+    &nbsp;prodotto[19].quantità = 80;<p>
+    &nbsp;prodotto[19].specifica = "256GB ram, 4TB storage";<p>
+    &nbsp;<p>
+    &nbsp;Mesi giorniMesi[12];<p>
+    &nbsp;giorniMesi[0].nome="Gennaio";<p>
+    &nbsp;giorniMesi[1].nome="Febbraio";<p>
+    &nbsp;giorniMesi[2].nome="Marzo";<p>
+    &nbsp;giorniMesi[3].nome="Aprile";<p>
+    &nbsp;giorniMesi[4].nome="Maggio";<p>
+    &nbsp;giorniMesi[5].nome="Giugno";<p>
+    &nbsp;giorniMesi[6].nome="Luglio";<p>
+    &nbsp;giorniMesi[7].nome="Agosto";<p>
+    &nbsp;giorniMesi[8].nome="Settembre";<p>
+    &nbsp;giorniMesi[9].nome="Ottobre";<p>
+    &nbsp;giorniMesi[10].nome="Novembre";<p>
+    &nbsp;giorniMesi[11].nome="Dicembre";<p>
+    &nbsp;<p>
+    &nbsp;int i = 0, h = 0, j = 0;<p>
+    &nbsp;<p>
+    &nbsp;int quantità_iniziale[20] = {20, 15, 20, 30, 10, 10, 50, 40, 30, 35, 45, 40, 70, 80, 90, 10, 100, 70, 40, 80};<p>
+    &nbsp;<p>
+    &nbsp;int comando = 0, command;<p>
+    &nbsp;<p>
+    &nbsp;int mesi2[13]={-1, 30, 57, 88, 118, 149, 179, 210, 241, 271, 302, 332, 363};<p>
+    &nbsp;<p>
+    &nbsp;srand(time(NULL));<p>
+    &nbsp;<p>
+    &nbsp;<p>
+    &nbsp;for (h=0; h&lt;365; h++) {<p>
+    &nbsp;for (i=0; i&lt;20; i++) {<p>
+    &nbsp;for (j=0; j&lt;12; j++) {<p>
+&nbsp;&nbsp;&nbsp;if (h>mesi2[j] &amp;&amp; h&lt;mesi2[j+1]+1) {<p>
+&nbsp;&nbsp;&nbsp;&nbsp;printf("[Giorno %d]-%d-%s\n",h+1, (h-mesi2[j]), giorniMesi[j].nome);<p>
+        &nbsp;&nbsp;}<p>
+    &nbsp;}<p>
+        &nbsp;&nbsp;printf("Prodotti.quantita: %d\n", prodotto[i].quantità);<p>
+        &nbsp;&nbsp;ProdottiVenduti[i].venduti[h] = 0 + rand()%prodotto[i].quantità;<p>
+        &nbsp;&nbsp;ProdottiRimanenti[i].rimanenti[h] = prodotto[i].quantità - ProdottiVenduti[i].venduti[h];<p>
+        &nbsp;&nbsp;prodotto[i].quantità = ProdottiRimanenti[i].rimanenti[h];<p>
+        &nbsp;<p>
+        &nbsp;&nbsp;if (prodotto[i].quantità &lt; 3) {<p>
+        &nbsp;&nbsp;&nbsp;prodotto[i].quantità = quantità_iniziale[i];<p>
+        &nbsp;&nbsp;}<p>
+&nbsp;<p>
+        &nbsp;&nbsp;printf("P%d %s: Venduti = %d Rimanenti = %d\n\n", i+1, prodotto[i].nome, ProdottiVenduti[i].venduti[h], ProdottiRimanenti[i].rimanenti[h]);<p>
+    &nbsp;}<p>
+    &nbsp;}<p>
+    &nbsp;<p>
+    &nbsp;command = menu(comando);<p>
+    &nbsp;scelte(command, mesi2, ProdottiRimanenti, ProdottiVenduti, prodotto);<p>
+    &nbsp;<p>
+    &nbsp;return 0;<p>
+&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;int menu(int comando)<p>
+&nbsp;{<p>
+    &nbsp;&nbsp;printf("---------------------------------------------------------\n");<p>
+    &nbsp;&nbsp;printf("                    Lista dei comandi\n");<p>
+    &nbsp;&nbsp;printf("[1] Prodotti Sotto Scorta\n");<p>
+    &nbsp;&nbsp;printf("[2] Acquisto Prodotto\n");<p>
+    &nbsp;&nbsp;printf("[3] Numero di Prodotti Venduti in 10gg\n");<p>
+    &nbsp;&nbsp;printf("[4] Chiudere il Programma\n");<p>
+    &nbsp;&nbsp;printf("---------------------------------------------------------\n");<p>
+    &nbsp;&nbsp;printf("---------------------------------------------------------\n");<p>
+    &nbsp;&nbsp;printf("                    Digitare Comando\n");<p>
+    &nbsp;&nbsp;scanf("%d", &amp;comando);<p>
+    &nbsp;&nbsp;printf("---------------------------------------------------------\n");<p>
+    &nbsp;&nbsp;return comando;<p>
+&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;void scelte(int command, int mesi2[], ProdottiRimanenti ProdottiRimanenti[], ProdottiVenduti ProdottiVenduti[], Prodotti prodotto[])<p>
+&nbsp;{<p>
+    &nbsp;&nbsp;int comando = 0;<p>
+    &nbsp;&nbsp;switch (command) {<p>
+        &nbsp;&nbsp;&nbsp;case 1:<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;prodotto_sotto_scorta(mesi2, ProdottiRimanenti, ProdottiVenduti, prodotto);<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;break;<p>
+            &nbsp;<p>
+        &nbsp;&nbsp;&nbsp;case 2:<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;prodotto_acquistato(mesi2, ProdottiRimanenti, ProdottiVenduti, prodotto);<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;break;<p>
+            &nbsp;<p>
+        &nbsp;&nbsp;&nbsp;case 3:<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;prodotti_venduti_10gg(mesi2, ProdottiRimanenti, ProdottiVenduti, prodotto);<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;break;<p>
+            &nbsp;<p>
+        &nbsp;&nbsp;&nbsp;case 4:<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;printf("Chiusura Programma...\n---------------------------------------------------------\n");<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;break;<p>
+            &nbsp;<p>
+        &nbsp;&nbsp;&nbsp;default: printf("\nComando Errato\n");<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;command = menu(comando);<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;scelte(command, mesi2, ProdottiRimanenti, ProdottiVenduti, prodotto);<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;break;<p>
+    &nbsp;&nbsp;}<p>
+&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;void prodotto_sotto_scorta(int mesi2[], ProdottiRimanenti ProdottiRimanenti[], ProdottiVenduti ProdottiVenduti[], Prodotti prodotto[])<p>
+{<p>
+    &nbsp;&nbsp;int i, g, giorno, mese, comando = 0, command = 0;<p>
+    &nbsp;<p>
+    &nbsp;&nbsp;printf("---------------------------------------------------------\n");<p>
+    &nbsp;&nbsp;printf("                  Prodotto Sotto Scorta\n");<p>
+    &nbsp;&nbsp;printf("Digitare Giorno (es. 20): ");<p>
+    &nbsp;&nbsp;scanf("%d", &amp;giorno);<p>
+    &nbsp;&nbsp;printf("Digitare mese (es. 3): ");<p>
+    &nbsp;&nbsp;scanf("%d", &amp;mese);<p>
+    &nbsp;&nbsp;for (g = mese; g == mese; g++) {<p>
+        &nbsp;&nbsp;&nbsp;for (i = 0; i &lt; 20; i++) {<p>
+             &nbsp;<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;if (ProdottiRimanenti[i].rimanenti[giorno + mesi2[g-1]] &lt; 5) {<p>
+                printf("\n[%s]", prodotto[i].nome);<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<p>
+        &nbsp;&nbsp;&nbsp;}<p>
+    &nbsp;&nbsp;}<p>
+    &nbsp;&nbsp;printf("\n---------------------------------------------------------\n");<p>
+    &nbsp;&nbsp;command = menu(comando);<p>
+    &nbsp;&nbsp;scelte(command, mesi2, ProdottiRimanenti, ProdottiVenduti, prodotto);<p>
+&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;void prodotto_acquistato(int mesi2[], ProdottiRimanenti ProdottiRimanenti[], ProdottiVenduti ProdottiVenduti[], Prodotti prodotto[])<p>
+&nbsp;{<p>
+    &nbsp;&nbsp;int i, g, giorno, mese, command = 0, comando = 0;<p>
+    &nbsp;<p>
+    &nbsp;&nbsp;printf("---------------------------------------------------------\n");<p>
+    &nbsp;&nbsp;printf("                    Acquisto Prodotto\n");<p>
+    &nbsp;&nbsp;printf("Digitare Giorno (es. 20): ");<p>
+    &nbsp;&nbsp;scanf("%d", &amp;giorno);<p>
+    &nbsp;&nbsp;printf("Digitare mese (es. 3): ");<p>
+    &nbsp;&nbsp;scanf("%d", &amp;mese);<p>
+    
+    &nbsp;&nbsp;for (g = mese; g == mese; g++) {<p>
+        &nbsp;&nbsp;&nbsp;for (i = 0; i &lt; 20; i++) {<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;if (ProdottiVenduti[i].venduti[giorno + mesi2[g-1]] == 0 ) {<p>
+                &nbsp;&nbsp;&nbsp;&nbsp;printf("\n[%s]", prodotto[i].nome);<p>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<p>
+            
+        &nbsp;&nbsp;&nbsp;}<p>
+    &nbsp;&nbsp;}<p>
+    &nbsp;&nbsp;printf("\n---------------------------------------------------------\n");<p>
+    &nbsp;&nbsp;command = menu(comando);<p>
+    &nbsp;&nbsp;scelte(command, mesi2, ProdottiRimanenti, ProdottiVenduti, prodotto);<p>
+}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;void prodotti_venduti_10gg(int mesi2[], ProdottiRimanenti ProdottiRimanenti[], ProdottiVenduti ProdottiVenduti[], Prodotti prodotto[])<p>
+&nbsp;{<p>
+    &nbsp;&nbsp;int i, g, j, giorno, mese, giorno2, mese2, codice, venduti = 0, comando = 0, command = 0;<p>
+    &nbsp;<p>
+    &nbsp;&nbsp;printf("---------------------------------------------------------\n");<p>
+    &nbsp;&nbsp;printf("               Prodotti Venduti in 10gg\n");<p>
+    &nbsp;&nbsp;for (i = 0; i &lt; 20; i++) {<p>
+        &nbsp;&nbsp;&nbsp;printf("Prodotto %d: %s Codice: %d\n", i+1, prodotto[i].nome, prodotto[i].codice);<p>
+    &nbsp;&nbsp;}<p>
+    &nbsp;&nbsp;printf("Digitare Codice Prodotto: \n");<p>
+    &nbsp;&nbsp;scanf("%d",&amp;codice);<p>
+    &nbsp;&nbsp;printf("Digitare Data (Massimo 10gg)\n");<p>
+    &nbsp;&nbsp;printf("Digitare Giorno Data Inizio (es. 20): ");<p>
+    &nbsp;&nbsp;scanf("%d", &amp;giorno);<p>
+    &nbsp;&nbsp;printf("Digitare Mese Data Inizio (es. 3): ");<p>
+    &nbsp;&nbsp;scanf("%d", &amp;mese);<p>
+    &nbsp;&nbsp;printf("Digitare Giorno Data Fine (es. 20): ");<p>
+    &nbsp;&nbsp;scanf("%d", &amp;giorno2);<p>
+    &nbsp;&nbsp;printf("Digitare Mese Data Fine (es. 3): ");<p>
+    &nbsp;&nbsp;scanf("%d", &amp;mese2);<p>
+    &nbsp;&nbsp;for (i = 0; i&lt;20; i++) {<p>
+        &nbsp;&nbsp;&nbsp;if (codice == prodotto[i].codice) {<p>
+                &nbsp;&nbsp;&nbsp;&nbsp;for (g = mese; g == mese; g++) {<p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (j = 0; j &lt; 10; j++) {<p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;venduti = venduti + ProdottiVenduti[i].venduti[giorno + mesi2[g-1] + j];<p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<p>
+                &nbsp;&nbsp;&nbsp;&nbsp;printf("\n%s: Venduti %d Prodotti\n", prodotto[i].nome, venduti);<p>
+        &nbsp;&nbsp;&nbsp;}<p>
+    &nbsp;&nbsp;}<p>
+    &nbsp;&nbsp;printf("---------------------------------------------------------\n");<p>
+    &nbsp;<p>
+    &nbsp;&nbsp;command = menu(comando);<p>
+    &nbsp;&nbsp;scelte(command, mesi2, ProdottiRimanenti, ProdottiVenduti, prodotto);<p>
+&nbsp;}<p>               
+                
+                
+                
+                
+                </p></body></h3>
+        </body>
+        
+    </BODY>
+</HTML>

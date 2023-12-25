@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+    <TITLE>RELAZIONE MENALE NICOLA CORSA BICICLETTE</TITLE>
+    <link rel="stylesheet" href="style.css">
+    </HEAD>
+    <BODY BGCOLOR="#143055">
+        <body>
+            <h1 align="center"><font size="7">CORSA BICICLETTE</font></h1><br>
+            <h2 align="center"><body text="#fffff"><a href="Corsa_Biciclette_Sorgente.html"><font color="#e99555"><font size="6"><p>Sorgente</p></font></font></a></body></h2>
+            <h2 align="center"><body text="#fffff"><p>Questo programma &egrave; una simulazione di una corsa tra 3 biciclette, la particolarit&agrave; di questo programma &egrave; che le bici vanno avanti a turno, spostandosi per un massimo di 3 posizioni (da 1 a 3) e guadagnando 10 secondi a spostamento, nel percosrso ritroviamo anche 4 salite e 4 discese, che rispettivamente, comportano il guadagno di pi&ugrave; tempo e meno tempo in base alla posizione in cui la bici si muove sulla salita o sulla discesa</p></body></h2>
+            <IMG SRC= images/CB_Overview1.jpg width="33%"></IMG>
+            <IMG SRC= images/CB_Overview2.jpg align="centerz" width="33.2%"></IMG>
+            <IMG SRC= images/CB_Overview3.jpg align="right" width="33%"></IMG>
+            <IMG SRC= images/CB_Overview4.jpg align="left" width="33%"></IMG>
+            <IMG SRC= images/CB_Overview5.jpg align="right" width="33%"></IMG>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body>
+            &nbsp;<p><hr>
+            &nbsp;<p>
+            <h2 align="center"> Struct delle bici formato da 4 caratteristiche: nome (bici1,bici2,bici3), posizione, tempo e giri </h2>
+            &nbsp;<p>
+            <IMG SRC= images/CB_Struct1.jpg width="33%" style="float:left"></IMG>
+            <IMG SRC= images/CB_Struct2.jpg align="centerz" width="33%"></IMG> 
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            <h2 align="center"> &nbsp;<p> Blocco di istruzioni utilizzato per la rappresentazione visiva del percorso </h2>
+            &nbsp;<p>
+            <IMG SRC= images/CB_Disegno1.jpg width="33%" style="float:left"></IMG>
+            <IMG SRC= images/CB_Disegno2.jpg width="33%"></IMG>
+        </body>
+        
+        <body>
+            &nbsp;<p>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/CB_Blocco1.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="center"> &nbsp;<p>&nbsp;<p>Blocco di istruzioni che permette il movimento, a turno, delle bici per un massimo di 3 posizioni, grazie ad un generatore di numeri pseudo-casuali. Va anche ad aumentare i giri delle singole bici ed evitare di aumentare il contatore posizione, della singola bici, quando una finisce di compiere tutti i giri, mentre le altre continuano</div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/CB_Blocco2.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="center"> &nbsp;<p>&nbsp;<p>Blocco di istruzioni si attiva quando la singola bici &egrave; in prossimità di una salita che, a differenza del primo blocco di istruzioni, in base al posizionamento sulla salita, il tempo aumenta di 10 secondi + una determinata quantità di secondi</div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">        
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/CB_Blocco3.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="center"> &nbsp;<p>&nbsp;<p>Blocco di istruzioni si attiva quando la singola bici &egrave; in prossimit&agrave; di una discesa che, a differenza del secondo blocco di istruzioni, in base al posizionamento sulla discesa, il tempo aumenta di 10 secondi - una determinata quantit&agrave; di secondi</div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">        
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/CB_Blocco4.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="center"> &nbsp;<p>&nbsp;<p>Blocco istruzioni che va a visualizzare il vincitore tra le 3 bici</div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">        
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            <h2 align="center"> &nbsp;<p> Simulazione 1 </h2>
+            <h2 align="center"> Appena avviato, il programma stampa tutta la lista di spostamenti, di incremento di tempo e di giri delle singole bici. Dalla simulazione si vede che quando arriva ad una salita o una discesa viene specificato e va ad aggiungere il determinato quantitativo di secondi in pi&ugrave;. Alla fine va a visualizzare il vincitore. </h2>
+            &nbsp;<p>
+            <IMG SRC= images/CB_Simulazione1_1.jpg width="33%"></IMG>
+            <IMG SRC= images/CB_Simulazione1_2.jpg width="33.2%" align="centerz"></IMG>
+            <IMG SRC= images/CB_Simulazione1_4.jpg width="33%" align="right"></IMG>
+            <IMG SRC= images/CB_Simulazione1_5.jpg width="33%"></IMG>
+            <IMG SRC= images/CB_Simulazione1_6.jpg width="33.2%" align="centerz"></IMG>
+            <IMG SRC= images/CB_Simulazione1_7.jpg width="33%" align="right"></IMG>
+            <IMG SRC= images/CB_Simulazione1_8.jpg width="33%"></IMG>
+            <IMG SRC= images/CB_Simulazione1_9.jpg width="33.2%" align="centerz"></IMG>
+            <IMG SRC= images/CB_Simulazione1_10.jpg width="33%" align="right"></IMG>
+            <IMG SRC= images/CB_Simulazione1_11.jpg width="33%"></IMG>
+            <IMG SRC= images/CB_Simulazione1_12.jpg width="33.2%" align="centerz"></IMG>
+            <IMG SRC= images/CB_Simulazione1_13.jpg width="33%" align="right"></IMG>
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            <h2 align="center"> &nbsp;<p> Simulazione 2 </h2>
+            <IMG SRC= images/CB_Simulazione2_1.jpg width="33%"></IMG>
+            <IMG SRC= images/CB_Simulazione2_2.jpg width="33.2%" align="centerz"></IMG>
+            <IMG SRC= images/CB_Simulazione2_3.jpg width="33%" align="right"></IMG>
+            <IMG SRC= images/CB_Simulazione2_4.jpg width="33%"></IMG>
+            <IMG SRC= images/CB_Simulazione2_5.jpg width="33%" align="centerz"></IMG>
+            <IMG SRC= images/CB_Simulazione2_6.jpg width="33.2%" align="right"></IMG>
+            <IMG SRC= images/CB_Simulazione2_7.jpg width="33%"></IMG>
+            <IMG SRC= images/CB_Simulazione2_8.jpg width="33%" align="centerz"></IMG>
+            <IMG SRC= images/CB_Simulazione2_9.jpg width="33.2%" align="right"></IMG>
+            <IMG SRC= images/CB_Simulazione2_10.jpg width="33%" align="centerz"></IMG>
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            <h2 align="center"> &nbsp;<p> Simulazione 3 </h2>
+            <IMG SRC= images/CB_Simulazione3.jpg width="33%"></IMG>
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            <h2 align="center"> &nbsp;<p> Simulazione 4 </h2>
+            <IMG SRC= images/CB_Simulazione3.jpg width="33%"></IMG>
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            <h2 align="center"> &nbsp;<p> Simulazione 5 </h2>
+            <IMG SRC= images/CB_Simulazione3.jpg width="33%"></IMG>
+        </body>
+        
+    </BODY>
+</HTML>

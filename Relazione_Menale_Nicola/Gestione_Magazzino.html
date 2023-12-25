@@ -1,0 +1,167 @@
+<HTML>
+<HEAD>
+    <TITLE>RELAZIONE MENALE NICOLA GESTIONE MAGAZZINO</TITLE>
+    <link rel="stylesheet" href="style.css">
+    </HEAD>
+    <BODY BGCOLOR="#143055">
+        <body>
+            <h1 align="center"><font size="7">GESTIONE MAGAZZINO</font></h1><br>
+            <h2 align="center"><body text="#fffff"><a href="Gestione_Magazzino_Sorgente.html"><font color="#e99555"><font size="6"><p>Sorgente</p></font></font></a></body></h2>
+           <h2 align="center"><body text="#fffff"><p>La finalità del programma è quella della gestione di un magazzino nel periodo di un intero anno. Nel programma ritroviamo 20 prodotti con nome, specifica, codice identificativo, quantità e costo. Il programma, oltre a dover gestire il magazzino per 365 giorni, può ricevere in particolare 3 input e un quarto input che lo interrompe.<p> I 3 input sono:<p>
+               <p>1)dato un giorno, scelto dall'utente, va a visualizzare i prodotti che alla fine della giornata sono sotto scorta, ovvero meno di 5
+               <p>2)dato un giorno, viene controllato se i prodotti sono stati acquistati almeno una volta
+               <p>3)dato in input il codice di un prodotto, viene visualizzato quanti ne sono stati venduti in una finestra temporale di 10gg (le due date di inizio e di fine vengono scelte dall'utente)</p></body></h2>
+            &nbsp;<p>
+            <IMG SRC= images/GM_Overview1.jpg align="left" width="33%"></IMG>
+            <IMG SRC= images/GM_Overview2.jpg align="centerz" width="33.2%"></IMG>
+            <IMG SRC= images/GM_Overview3.jpg align="right" width="33%"></IMG>
+            <IMG SRC= images/GM_Overview4.jpg align="left" width="33%"></IMG>
+            <IMG SRC= images/GM_Overview5.jpg align="centerz" width="33%"></IMG>
+            <IMG SRC= images/GM_Overview6.jpg align="right" width="33%"></IMG>
+            <IMG SRC= images/GM_Overview7.jpg align="left" width="33.2%"></IMG>
+            <IMG SRC= images/GM_Overview8.jpg align="centerz" width="33%"></IMG>
+            <IMG SRC= images/GM_Overview9.jpg align="right" width="33%"></IMG>
+            <IMG SRC= images/GM_Overview10.jpg align="centerz" width="33%"></IMG>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body>
+            &nbsp;<p><hr>
+            &nbsp;<p>
+            <h2 align="center"> Struct "Mesi" contenente i nomi dei 12 mesi dell'anno, utilizzato per visualizzare la data<p>
+                Struct "Prodotti" contenente tutte le caratteristiche di un prodotto: nome, specifica, codice, quantit&agrave;, prezzo<p>
+                Struct "ProdottiVenduti" utilizzata dai 20 prodotti, per contenere il numero dei prodotti venduti ogni giorno<p>
+                Struct "ProdottiRimanenti" utilizzata dai 20 prodotti, per contenere il numero dei prodotti rimanenti alla fine di ogni giorno<p> </h2>
+            &nbsp;<p>
+            <IMG SRC= images/GM_Struct.jpg width="33%" style="float:left"></IMG>
+            <IMG SRC= images/GM_Overview2.jpg align="centerz" width="33.2%"></IMG>
+            <IMG SRC= images/GM_Overview3.jpg align="right" width="33%"></IMG>
+            <IMG SRC= images/GM_Overview4.jpg align="left" width="33%"></IMG>
+            <IMG SRC= images/GM_Overview5.jpg align="centerz" width="33%"></IMG>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/GM_Function.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="left"> &nbsp;<p>&nbsp;<p> 1) Inizializzazione function "prodotto_sotto_scorta" per visualizzare i prodotti sotto scorta di un determinato giorno<p>
+            2) Inizializzazione function "prodotto_acquistato" per visualizzare i prodotti sotto scorta di un determinato giorno<p>
+            3) Inizializzazione function "prodotti_venduti_10gg" per visualizzare il numero di prodotti totali venduti in 10 giorni(scelti dall'utente)<p>
+            4) Inizializzazione function "menu" che visualizza il menu e l'inserimento del comando<p>
+            5) Inizializzazione function "scelte" che utilizza il comando inserito nella function menu per operare una delle 4 scelte possibili<p></div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/GM_Blocco1.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="center"> &nbsp;<p>&nbsp;<p> Costrutto utilizzato dal programma per vendere i prodotti e aggiungerne in caso di scarse scorte. Il blocco di istruzioni, all'inizio, mostra il giorno, il mese e la quantit&agrave; del prodotto specifico disponibile all'inizio di ogni giornata, in seguito un generatore di numeri casuali, che va da 0 alla quantità di prodotto disponibile all'inizio di quella determinata giornata, genera il numero di prodotti che verranno venduti e lo inserisce nella struct "ProdottiVenduti" per ricordare la vendita in quel specifico giorno. Infine abbiamo il salvataggio dei prodotti rimanenti a fine giornata nella struct "ProdottiRimanenti", in modo tale che la quantit&agrave; dei prodotti dell'inizio del giorno dopo siano equivalenti ai rimanenti del giorno prima<p></div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/GM_FunctionMenu.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="center"> &nbsp;<p>&nbsp;<p> Function "menu" che stampa il menu e che utilizza una scanf per permette all'utente di scegliere uno dei 4 comandi. Il numero verrà associato ad un'altra variabile (command) che verrà usata dalla function scelte<p></div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/GM_FunctionScelte.jpg align="left" width="33.7%"></IMG>
+            <h2 align="center"><div align="left"> Function "scelte": function che ha come scopo quello di attivare una delle altre 3 function del programma in base al numero scelto dall'utente all'avvio del programma (1 a 3, 4 per fermare il programma).<p>
+                <p>Utilizza come input:<p>
+                1) command = comando scelto dall'utente e utilizzato dal programma in uno switch per utilizzare una delle 3 function<p>
+                2) mesi[] = array che indica il primo giorno di ogni mese dell'anno contando i giorni da 0 a 364<p>
+                3) prodottiRimanenti[] = struct dei prodotti rimanenti (per prodotto) alla fine di ogni giorno<p>
+                4) ProdottiVenduti[] = struct dei prodotti venduti (per prodotto) alla fine di ogni giorno<p>
+                5) prodotto[] = struct dei prodotti<p>
+                Gli ultimi 4 input a loro volta sono input delle function "menu" e "scelte"<p></div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/GM_FunctionProdottoSottoScorta.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="left"> &nbsp;<p> Function "prodotto sotto scorta": function che ha come scopo quello di, in base ad una data scelta dall'utente, visualizzare i prodotti, a fine giornata, che hanno una quantità minore di 5.<p>
+                <p>Utilizza come input:<p>
+                1) mesi[] = array che indica il primo giorno di ogni mese dell'anno contando i giorni da 0 a 364<p>
+                2) prodottiRimanenti[] = struct dei prodotti rimanenti (per prodotto) alla fine di ogni giorno<p>
+                3) ProdottiVenduti[] = struct dei prodotti venduti (per prodotto) alla fine di ogni giorno<p>
+                4) prodotto[] = struct dei prodotti<p>
+                I 4 input a loro volta sono input delle function "menu" e "scelte"<p></div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/GM_FunctionProdottoAcquistato.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="left"> &nbsp;<p> Function "prodotto acquistato": function che ha come scopo quello di, in base ad una data scelta dall'utente, visualizzare i prodotti, a fine giornata, che non sono stati venduti.<p>Utilizza come input:<p>
+                1) mesi[] = array che indica il primo giorno di ogni mese dell'anno contando i giorni da 0 a 364<p>
+                2) prodottiRimanenti[] = struct dei prodotti rimanenti (per prodotto) alla fine di ogni giorno<p>
+                3) ProdottiVenduti[] = struct dei prodotti venduti (per prodotto) alla fine di ogni giorno<p>
+                4) prodotto[] = struct dei prodotti<p>
+                I 4 input a loro volta sono input delle function "menu" e "scelte"<p><p></div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        <body> 
+            &nbsp;<p><hr>
+            &nbsp;<p>
+                <IMG SRC= images/GM_FunctionProdottiVenduti10gg.jpg align="left" width="33%"></IMG>
+            <h2 align="center"><div align="left"> &nbsp;<p>&nbsp;<p> Function "prodoti venduti 10gg": function che ha come scopo quello di, in base a due date scelte dall'utente, visualizzare le vendite di un prodotto, scelto tramite codice identificativo, in 10 giorni.
+                Utilizza come input:<p>
+                1) mesi[] = array che indica il primo giorno di ogni mese dell'anno contando i giorni da 0 a 364<p>
+                2) prodottiRimanenti[] = struct dei prodotti rimanenti (per prodotto) alla fine di ogni giorno<p>
+                3) ProdottiVenduti[] = struct dei prodotti venduti (per prodotto) alla fine di ogni giorno<p>
+                4) prodotto[] = struct dei prodotti<p>
+                I 4 input a loro volta sono input delle function "menu" e "scelte"<p></div></h2>
+            <br CLEAR="RIGHT"> 
+            <br CLEAR="LEFT">
+        </body>
+        
+        
+        
+        
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            <h2 align="center"> &nbsp;<p> Simulazione 1 </h2>
+            <h2 align="center"> Appena avviato, il programma apre il menu di scelte. Andando a selezionare la 3, si sceglie l'opzione che visualizza la quantit&agrave; di uno specifico prodotto, inserendo il codice del prodotto, venduto in 10 giorni. All'inizio abbiamo la lista dei 20 prodotti con i relativi codici, si scrive uno dei codici e ci viene richiesto il giorno di inizio, il mese di inizio, il giorno della fine (massimo 10 giorni) e il mese di fine. Infine viene visualizzato il numero di prodotti venduti. Dopo ci&ograve; si pu&ograve; scegliere se continuare ad utilizzare il programma, andando anche ad utilizzare le altre opzioni, oppure chiuderlo.</h2>
+            &nbsp;<p>
+            <IMG SRC= images/GM_Simulazione1_1.jpg width="33%"></IMG>
+            <IMG SRC= images/GM_Simulazione1_2.jpg width="33.2%" align="centerz"></IMG>
+            
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            <h2 align="center"> &nbsp;<p> Simulazione 2 </h2>
+            <IMG SRC= images/GM_Simulazione2.jpg width="33%"></IMG>
+        </body>
+        
+        <body>
+            &nbsp;<p> 
+            &nbsp;<p><hr>
+            <h2 align="center"> &nbsp;<p> Simulazione 3 </h2>
+            <IMG SRC= images/GM_Simulazione3.jpg width="33%"></IMG>
+        </body>
+        
+    </BODY>
+</HTML>

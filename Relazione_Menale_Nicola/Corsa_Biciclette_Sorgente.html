@@ -1,0 +1,200 @@
+<HTML>
+<HEAD>
+    <TITLE>RELAZIONE MENALE NICOLA CORSA BICICLETTE SORGENTE</TITLE>
+    <link rel="stylesheet" href="style.css">
+    </HEAD>
+    <BODY BGCOLOR="#143055">
+        <body>
+            <h1 align="center"><font size="7">CORSA BICICLETTE SORGENTE</font></h1><br>
+            
+            <h3 align="left"><body text="#fffff"><p>
+&nbsp;&num;include &lt;stdlib.h&gt;<p>
+&nbsp;&num;include &lt;string.h&gt;<p>
+&nbsp;&num;include &lt;stdio.h&gt;<p>
+&nbsp;&num;include &lt;time.h&gt;<p>
+&nbsp;<p>
+&nbsp;typedef struct biciclette &lcub;<p>
+    &nbsp;char &ast;nome&semi;<p>
+    &nbsp;int posizioni&semi;<p>
+    &nbsp;int tempo&semi;<p>
+    &nbsp;int giri&semi;<p>
+&rcub; corridori&semi;<p>
+&nbsp;<p>
+&nbsp;int main&lpar;&rpar;<p>
+    &nbsp;int posizione = 0;<p>
+    &nbsp;int fine_salita[4] = {19,43,67,102};<p>
+    &nbsp;int fine_discesa[4] = {31,53,82,111};<p>
+    &nbsp;int salita[4] = {12,36,60,95};<p>
+    &nbsp;int discesa[4] ={24,46,75,104};<p>
+    &nbsp;int TempoVincitore;<p>
+&nbsp;<p>
+    &nbsp;int i=0;<p>
+    &nbsp;int j=0;<p>
+    &nbsp;<p>
+    &nbsp;corridori bici[3];<p>
+    &nbsp;srand(time(NULL));<p>
+    &nbsp;<p>
+    &nbsp;bici[0].tempo=0;<p>
+    &nbsp;bici[0].posizioni=0;<p>
+    &nbsp;bici[0].nome="BICI1";<p>
+    &nbsp;bici[0].giri=0;<p>
+ &nbsp;<p>
+    &nbsp;bici[1].tempo=0;<p>
+    &nbsp;bici[1].posizioni=0;<p>
+    &nbsp;bici[1].nome="BICI2";<p>
+    &nbsp;bici[1].giri=0;<p>
+    &nbsp;<p>
+    &nbsp;bici[2].tempo=0;<p>
+    &nbsp;bici[2].posizioni=0;<p>
+    &nbsp;bici[2].nome="BICI3";<p>
+    &nbsp;bici[2].giri=0;<p>
+&nbsp;<p>
+    &nbsp;char verticale3= '|';<p>
+    &nbsp;char orizzontale= '_';<p>
+    &nbsp;<p>
+    &nbsp;<p>
+    &nbsp;printf("%22c_____\n", orizzontale);<p>
+    &nbsp;printf("%21c %6c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%21c %6c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%21c %6c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%21c %6c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%21c %6c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%9c___________| %6c____",orizzontale, verticale3);<p>
+    &nbsp;printf("\n%8c%25c\n%8c%25c______\n", verticale3, verticale3, verticale3, verticale3);<p>
+    &nbsp;printf("%8c%32c\n", verticale3, verticale3);<p>
+    &nbsp;printf(" ______|%32c\n", verticale3);<p>
+    &nbsp;printf("|%39c\n", verticale3);<p>
+    &nbsp;printf("|%33c_____|\n", orizzontale);<p>
+    &nbsp;printf("|______%26c\n", verticale3);<p>
+    &nbsp;printf("%8c%25c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%8c%25c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%8c%25c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%8c__________%12c__%c\n", verticale3, orizzontale, verticale3);<p>
+    &nbsp;printf("%19c%10c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%19c%10c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%19c%10c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%19c%10c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%19c%10c\n", verticale3, verticale3);<p>
+    &nbsp;printf("%19c_________%1c\n\n", verticale3, verticale3);<p>
+&nbsp;<p>
+&nbsp;<p>
+    &nbsp;printf("%14c_____ %8c___ %10c________ %16c__\n", orizzontale, orizzontale, orizzontale, orizzontale);<p>
+    &nbsp;printf("%13c %6c %6c %4c %8c %9c %14c %3c\n", verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3);<p>
+    &nbsp;printf("%13c %6c %6c %4c %8c %9c %14c %3c\n", verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3);<p>
+    &nbsp;printf("%13c %6c %6c %4c %8c %9c %14c %3c\n", verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3);<p>
+    &nbsp;printf("%13c %6c %6c %4c %8c %9c %14c %3c\n", verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3);<p>
+    &nbsp;printf("%13c %6c %6c %4c %8c %9c %14c %3c\n", verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3, verticale3);<p>
+    &nbsp;printf("____________| %6c______| %4c________| %9c______________| %3c____\n\n", verticale3, verticale3, verticale3, verticale3);
+    &nbsp;<p>
+    &nbsp;<p>
+    &nbsp;<p>
+    &nbsp;&nbsp;do {<p>
+&nbsp;&nbsp;&nbsp;for (j=0; j&lt;3; j++) {<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posizione = 1 + rand()%3;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (i=posizione;i&lt;=posizione; i++) {<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!(bici[j].posizioni + i >= 115 &amp;&amp; bici[j].giri == 19)){<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].tempo = bici[j].tempo + 10;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].posizioni = bici[j].posizioni + i;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else { bici[j].posizioni = 114; }<p>
+                        &nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (bici[j].posizioni>=115) {<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].giri++;<p>
+                            &nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].posizioni = bici[j].posizioni - 115;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s Posizioni:%d\n", bici[j].nome, bici[j].posizioni);<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s Giri:%d\n", bici[j].nome, bici[j].giri);<p>
+ &nbsp;<p>
+ &nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (bici[j].posizioni > salita[0] &amp;&amp; bici[j].posizioni &lt; fine_salita[0]){<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].tempo = bici[j].tempo + (bici[j].posizioni - salita[0]);<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Salita n.1 ");<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (bici[j].posizioni > salita[1] &amp;&amp; bici[j].posizioni &lt; fine_salita[1]){<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].tempo = bici[j].tempo + (bici[j].posizioni - salita[1]);<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Salita n.2 ");<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (bici[j].posizioni > salita[2] &amp;&amp; bici[j].posizioni &lt; fine_salita[2]){<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].tempo = bici[j].tempo + (bici[j].posizioni - salita[2]);<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Salita n.3 ");<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f (bici[j].posizioni > salita[3] &amp;&amp; bici[j].posizioni &lt; fine_salita[3]){<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].tempo = bici[j].tempo + (bici[j].posizioni - salita[3]);<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Salita n.4 ");<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (bici[j].posizioni > discesa[0] &amp;&amp; bici[j].posizioni &lt; fine_discesa[0]){<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].tempo = bici[j].tempo + (bici[j].posizioni - discesa[0]);<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Discesa n.1 ");<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>    
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (bici[j].posizioni > discesa[1] &amp;&amp; bici[j].posizioni &lt; fine_discesa[1]){<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].tempo = bici[j].tempo + (bici[j].posizioni - discesa[1]);<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Discesa n.2 ");<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (bici[j].posizioni > discesa[2] &amp;&amp; bici[j].posizioni &lt; fine_discesa[2]){<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].tempo = bici[j].tempo + (bici[j].posizioni - discesa[2]);<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Discesa n.3 ");<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>
+&nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (bici[j].posizioni > discesa[3] &amp;&amp; bici[j].posizioni &lt; fine_discesa[3]){<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bici[j].tempo = bici[j].tempo + (bici[j].posizioni - discesa[3]);<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Discesa n.4 ");<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>                        
+&nbsp;<p>                        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s Tempo:%d\n\n", bici[j].nome, bici[j].tempo);<p>
+&nbsp;<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>                            
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+&nbsp;<p>                
+&nbsp;&nbsp;&nbsp;} while ((bici[0].giri != 19 || bici[0].posizioni != 114) || (bici[1].giri != 19 || bici[1].posizioni != 114) || (bici[2].giri != 19 || bici[2].posizioni != 114));<p>
+&nbsp;<p>    
+&nbsp;<p> 
+&nbsp;<p>
+&nbsp;printf("GiriB1 = %d \n", bici[0].giri);<p>
+&nbsp;printf("GiriB2 = %d \n", bici[1].giri);<p>
+&nbsp;printf("GiriB3 = %d \n", bici[2].giri);<p>
+&nbsp;<p>    
+&nbsp;if (bici[0].tempo &lt; bici[1].tempo &amp;&amp; bici[0].tempo &lt; bici[2].tempo) {<p>
+&nbsp;TempoVincitore = bici[0].tempo;<p>
+&nbsp;printf("\nVincitore: %s\nTempo Vincitore: %d\n", bici[0].nome, TempoVincitore);<p>
+&nbsp;}<p>
+&nbsp;<p>    
+&nbsp;if (bici[1].tempo &lt; bici[0].tempo &amp;&amp; bici[1].tempo &lt; bici[2].tempo) {<p>
+&nbsp;TempoVincitore = bici[1].tempo;<p>
+&nbsp;printf("\nVincitore: %s\nTempo Vincitore: %d\n", bici[1].nome, TempoVincitore);<p>
+&nbsp;}<p>
+&nbsp;<p>    
+&nbsp;if (bici[2].tempo &lt; bici[1].tempo &amp;&amp; bici[2].tempo &lt; bici[0].tempo) {<p>
+&nbsp;TempoVincitore = bici[2].tempo;<p>
+&nbsp;printf("\nVincitore: %s\nTempo Vincitore: %d\n", bici[2].nome, TempoVincitore);<p>
+&nbsp;}<p>
+&nbsp;<p>    
+&nbsp;return 0;<p>
+&nbsp; } <p>
+</p></body></h3>
+        </body>
+        
+    </BODY>
+</HTML>
