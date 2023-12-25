@@ -1,0 +1,16 @@
+<HTML> 
+<HEAD> 
+<TITLE>
+Documento HTML
+</TITLE> 
+</HEAD> 
+<BODY>
+
+<INPUT TYPE="CHECKBOX" NAME="Cultura"> <FONT COLOR="white" FACE="Comic Sans MS" SIZE="3"> Scientifici </FONT> <BR>
+<INPUT TYPE="CHECKBOX" NAME="Gialli"> <FONT COLOR="white" FACE="Comic Sans MS" SIZE="3"> Gialli </FONT> <BR>
+<INPUT TYPE="CHECKBOX" NAME="Altro" > <FONT COLOR="white" FACE="Comic Sans MS" SIZE="3"> Altro </FONT>
+
+<INPUT TYPE="RESET" VALUE="Cancella tutto!">
+
+</BODY>  
+</HTML> 
